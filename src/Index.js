@@ -1,4 +1,6 @@
-const DataBaseClass = require("./lib/DataBaseClass.js")
+import { DataBaseClass } from "./Classes/DataBaseClass.js"
 
 global.FileDB = {}
 FileDB.DataBase = new DataBaseClass("./FileDB.db")
+
+require("./Server/index.js")
