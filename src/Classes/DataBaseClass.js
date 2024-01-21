@@ -1,7 +1,7 @@
-class DataBase {
+class DataBaseClass {
     constructor(FileName) {
         this.FileName = FileName
     }
 }
 
-module.exports = DataBase
+export { DataBaseClass }
