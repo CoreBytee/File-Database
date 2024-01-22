@@ -1,7 +1,7 @@
-class DataBaseClass {
+class Database {
     constructor(FileName) {
         this.FileName = FileName
     }
 }
 
-export { DataBaseClass }
+export default Database
