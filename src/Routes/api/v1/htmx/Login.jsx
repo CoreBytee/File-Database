@@ -25,6 +25,8 @@ export default function Login(FileDB, App) {
             Request.set.headers = {
                 "Hx-Refresh": "true"
             }
+
+            return "Success"
         }
     )
 }
