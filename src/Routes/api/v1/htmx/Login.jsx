@@ -10,7 +10,21 @@ export default function Login(FileDB, App) {
             if (!User) return UnknownUserMessage
             if (!await User.CheckPassword(Password)) return UnknownUserMessage
 
-            return "Hello World"
+            const Token = await Request.JWT.sign(
+                {
+                    Username,
+                }
+            )
+
+            Request.cookie.authentication.set(
+                {
+                    value: Token
+                }
+            )
+
+            Request.set.headers = {
+                "Hx-Refresh": "true"
+            }
         }
     )
 }
