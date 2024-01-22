@@ -1,5 +1,6 @@
 class Database {
-    constructor(FileName) {
+    constructor(FileDB, FileName) {
+        this.FileDB = FileDB
         this.FileName = FileName
     }
 }
