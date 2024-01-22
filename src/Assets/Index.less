@@ -1,0 +1,62 @@
+:root {
+    --font-bebasneue: 'Bebas Neue', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+
+    --color-background: #1f1f1f;
+    --color-floating: #2f2f2f;
+    --color-input: #3f3f3f;
+}
+
+input {
+    appearance: none;
+    background-color: var(--color-input);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+html, body {
+    margin: 0px;
+    background-color: var(--color-background);
+    color: white;
+    font-family: var(--font-poppins);
+}
+
+.Center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.Viewport {
+        height: 100vh;
+    }
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--color-floating);
+    border-radius: 20px;
+    padding: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 75px;
+    .header {
+        font-family: var(--font-bebasneue);
+        font-size: 6rem;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
