@@ -3,8 +3,9 @@ import Webserver from "./Webserver"
 
 class FileDB {
     constructor(Port) {
-        this.Database = new Database()
-        this.Webserver = new Webserver(Port)
+        this.Database = new Database(this, "./FileDB")
+        this.Webserver = new Webserver(Port, this)
+        this.Webserver.Routes()
         this.Webserver.Listen()
     }
 }

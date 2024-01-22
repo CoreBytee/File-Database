@@ -2,13 +2,13 @@ import Elysia from "elysia"
 import { jwt as JWT } from "@elysiajs/jwt"
 import { html as HTML } from "@elysiajs/html"
 import { staticPlugin as Static } from "@elysiajs/static"
+import { Glob } from "bun"
 
-import { Root } from "../Components/Root"
-import { LoginPage } from "../Layouts/LoginPage"
 
 class Webserver {
-    constructor(Port) {
+    constructor(Port, FileDB) {
         this.Port = Port
+        this.FileDB = FileDB
         this.App = new Elysia()
 
         this.App.use(
@@ -33,12 +33,13 @@ class Webserver {
             )
         )
 
-        this.App.get(
-            "/",
-            () => {
-                return <LoginPage />
-            }
-        )
+    }
+
+    Routes() {
+        const Scanner = new Glob("**/*.jsx")
+        for (const FilePath of Scanner.scanSync(`${import.meta.dir}/../Routes/`)) {
+            require(`../Routes/${FilePath}`).default(this.FileDB, this.App)
+        }
     }
 
     Listen() {
