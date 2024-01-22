@@ -11,6 +11,10 @@ class Webserver {
         this.FileDB = FileDB
         this.App = new Elysia()
 
+        this.App.onError(({ code, error }) => {
+            console.log(error.toString())
+        })
+
         this.App.use(
             JWT(
                 {
