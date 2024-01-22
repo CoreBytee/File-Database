@@ -1,3 +1,7 @@
+import User from './User'
+
+import { Database as SQL } from 'bun:sqlite'
+
 class Database {
     constructor(FileDB, FileName) {
         this.FileDB = FileDB
