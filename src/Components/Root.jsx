@@ -1,5 +1,6 @@
+import { Copyright } from "./Copyright"
+
 export const Root = ({ children }) => {
-    console.log(children)
     return (
         <html lang="en">
             <head>
@@ -19,6 +20,7 @@ export const Root = ({ children }) => {
             </head>
             <body>
                 {children}
+                <Copyright />
             </body>
         </html>
     )

@@ -31,6 +31,15 @@ body {
 .Center.Viewport {
   height: 100vh;
 }
+.Copyright {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+  width: 100%;
+}
 .Login {
   display: flex;
   flex-direction: column;
