@@ -1,6 +1,3 @@
-import { DataBaseClass } from "./Classes/DataBaseClass.js"
+import { FileDB as FileDBClass } from "./Classes/FileDB.js"
 
-global.FileDB = {}
-FileDB.DataBase = new DataBaseClass("./FileDB.db")
-
-require("./Server/index.js")
+const FileDB = new FileDBClass(Number(Bun.env.PORT))
