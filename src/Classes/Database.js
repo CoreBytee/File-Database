@@ -2,6 +2,11 @@ class Database {
     constructor(FileDB, FileName) {
         this.FileDB = FileDB
         this.FileName = FileName
+        this.SQL = new SQL(this.FileName)
+
+        this.GetUserFromUsernameStatement = this.SQL.prepare(`SELECT * FROM Users WHERE Username = $username`)
+    }
+
     async CreateTables() {
         this.SQL.exec(`
             CREATE TABLE IF NOT EXISTS "Users" (
