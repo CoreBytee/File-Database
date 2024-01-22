@@ -62,3 +62,8 @@ body {
   flex-direction: column;
   gap: 5px;
 }
+.Login .error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
