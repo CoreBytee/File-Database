@@ -26,7 +26,7 @@ class Database {
         if (!adminUser) {
             // Create admin user
             console.log('Creating admin user...')
-            this.SQL.prepare(`INSERT INTO Users (Id, Username, PasswordHash) VALUES (1, 'admin', $password)`).run(
+            this.SQL.prepare(`INSERT INTO Users (Id, Username, PasswordHash, Admin) VALUES (1, 'admin', $password, 1)`).run(
                 {
                     $password: await Bun.password.hash('admin')
                 }
