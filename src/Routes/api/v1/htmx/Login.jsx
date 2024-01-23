@@ -18,7 +18,10 @@ export default function Login(FileDB, App) {
 
             Request.cookie.authentication.set(
                 {
-                    value: Token
+                    value: Token,
+                    httpOnly: true,
+                    maxAge: 60 * 60 * 24 * 7,
+                    path: "/"
                 }
             )
 
