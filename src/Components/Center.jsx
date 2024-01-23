@@ -1,4 +1,4 @@
-export const Center = ({ children, viewport }) => {
+export default function Center({ children, viewport }) {
     return (
         <div class={`Center ${viewport ? "Viewport" : ""}`}>
             {children}

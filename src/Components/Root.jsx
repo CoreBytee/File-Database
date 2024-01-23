@@ -1,6 +1,6 @@
-import { Copyright } from "./Copyright"
+import Copyright from "./Copyright"
 
-export const Root = ({ children }) => {
+export default function Root({ children }) {
     return (
         <html lang="en">
             <head>

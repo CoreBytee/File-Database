@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Topbar() {
     return (
         <div class="Login">
             <a class="header">FILEDB</a>
