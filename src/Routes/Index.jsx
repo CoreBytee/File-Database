@@ -1,10 +1,12 @@
-import { LoginPage } from "../Layouts/LoginPage"
+import CheckAuthentication from "../Helpers/CheckAuthentication"
+import LoginPage from "../Layouts/LoginPage"
+import GalleryPage from "../Layouts/GalleryPage"
 
 export default function Index(FileDB, App) {
     App.get(
         "/",
-        () => {
-            return <LoginPage />
+        async (Request) => {
+            return await CheckAuthentication(Request) ? <GalleryPage /> : <LoginPage />
         }
     )
 }
