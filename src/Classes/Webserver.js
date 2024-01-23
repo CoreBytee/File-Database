@@ -15,6 +15,8 @@ class Webserver {
             console.log(error.toString())
         })
 
+        this.App.use(HTML())
+
         this.App.use(
             JWT(
                 {
@@ -22,10 +24,6 @@ class Webserver {
                     secret: Bun.env.JWT_SECRET
                 }
             )
-        )
-        
-        this.App.use(
-            HTML()
         )
         
         this.App.use(
