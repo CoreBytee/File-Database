@@ -2,10 +2,10 @@ import Root from "../Components/Root"
 import Center from "../Components/Center"
 import Topbar from "../Components/Topbar"
 
-export default function GalleryPage({ children, username }) {
+export default function GalleryPage({ children }) {
     return (
         <Root>
-            <Topbar username={username} />
+            <Topbar />
             <Center viewport>
                 
             </Center>

@@ -7,7 +7,7 @@ export default function Index(FileDB, App) {
         "/",
         async (Request) => {
             const Authentication = await CheckAuthentication(Request)
-            return Authentication ? <GalleryPage username={Authentication.Username} /> : <LoginPage />
+            return Authentication ? <GalleryPage /> : <LoginPage />
         }
     )
 }
