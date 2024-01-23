@@ -2,7 +2,7 @@ import { Root } from "../Components/Root"
 import { Login } from "../Components/Login"
 import { Center } from "../Components/Center"
 
-export const LoginPage = ({ children }) => {
+export default function LoginPage({ children }) {
     return (
         <Root>
             <Center viewport>
