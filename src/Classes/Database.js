@@ -8,7 +8,6 @@ class Database {
         this.FileName = FileName
         this.SQL = new SQL(this.FileName)
 
-        this.GetUserFromUsernameStatement = this.SQL.prepare(`SELECT * FROM Users WHERE Username = $username`)
     }
 
     async CreateTables() {
@@ -33,6 +32,10 @@ class Database {
                 }
             )
         }
+    }
+
+    async CreateStatements() {
+        this.GetUserFromUsernameStatement = this.SQL.prepare(`SELECT * FROM Users WHERE Username = $username`)
     }
 
     async GetUserFromUsername(Username) {
