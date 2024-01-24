@@ -76,12 +76,22 @@ body {
   height: 100%;
   aspect-ratio: 1.5/1;
   border-radius: 1000px;
+  cursor: pointer;
   --icon-cog: "\F3E5";
   --icon-user: "\F4E1";
+}
+@keyframes blink {
+  0% {
+    background-color: #8c0000;
+  }
+  100% {
+    background-color: var(--color-floating);
+  }
 }
 .ModeSwitch.enabled::after {
   content: var(--icon-cog);
   transform: translateX(70%) rotate(360deg);
+  animation: blink 0.5s ease-in-out infinite alternate;
 }
 .ModeSwitch::after {
   transition: transform 0.5s ease-in-out;
