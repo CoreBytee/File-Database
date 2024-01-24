@@ -1,6 +1,6 @@
 import CheckAuthentication from "../Helpers/CheckAuthentication"
 import LoginPage from "../Layouts/LoginPage"
-import GalleryPage from "../Layouts/GalleryPage"
+import GalleryPage from "../Layouts/MainPage"
 
 export default function Index(FileDB, App) {
     App.get(
