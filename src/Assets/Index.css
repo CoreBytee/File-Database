@@ -80,13 +80,13 @@ body {
   --icon-user: "\F4E1";
 }
 .ModeSwitch.enabled::after {
-  content: var(--icon-user);
+  content: var(--icon-cog);
   transform: translateX(70%) rotate(360deg);
 }
 .ModeSwitch::after {
   transition: transform 0.5s ease-in-out;
   transform: translateX(0px) rotate(0deg);
-  content: var(--icon-cog);
+  content: var(--icon-user);
   height: 70%;
   display: block;
   margin: 10%;
@@ -112,6 +112,7 @@ body {
   font-family: var(--font-bebasneue);
   font-weight: bold;
   font-size: 2rem;
+  letter-spacing: 1px;
 }
 .Topbar .logoutbutton {
   color: var(--color-link);

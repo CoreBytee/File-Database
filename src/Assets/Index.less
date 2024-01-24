@@ -92,14 +92,14 @@ html, body {
     --icon-user: "\F4E1";
 
     &.enabled::after {
-        content: var(--icon-user);
+        content: var(--icon-cog);
         transform: translateX(100% - 10%*3) rotate(360deg);
     }
 
     &::after {
         transition: transform 0.5s ease-in-out;
         transform: translateX(0px) rotate(0deg);
-        content: var(--icon-cog);
+        content: var(--icon-user);
         height: 100% - 10%*3;
         display: block;
         margin: 10%;
@@ -129,6 +129,7 @@ html, body {
         font-family: var(--font-bebasneue);
         font-weight: bold;
         font-size: 2rem;
+        letter-spacing: 1px;
     }
 
     .logoutbutton {
