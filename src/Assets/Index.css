@@ -90,6 +90,10 @@ body {
   padding-right: 10%;
   display: flex;
   flex-direction: row;
+  gap: 10px;
+}
+.MainView .content {
+  width: 100%;
 }
 .MainView .sidebar {
   width: 20vw;
