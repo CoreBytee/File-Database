@@ -1,9 +1,11 @@
 import LoginPage from "../Layouts/LoginPage"
 
 export default async function CheckAuthentication(Request) {
-    const TokenData = await Request.JWT.verify(Request.cookie.authentication.value)
+    const AuthenticationCookie = Request.cookie.authentication.value
+    console.log(AuthenticationCookie)
+    const TokenData = await Request.JWT.verify(AuthenticationCookie)
+    console.log
     if (!TokenData) {
-        Request.set.body = <LoginPage />
         return false
     }
     return TokenData
