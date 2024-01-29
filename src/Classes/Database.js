@@ -33,20 +33,6 @@ class Database {
             )
         }
     }
-
-    async CreateStatements() {
-        this.GetUserFromUsernameStatement = this.SQL.prepare(`SELECT * FROM Users WHERE Username = $username`)
-    }
-
-    async GetUserFromUsername(Username) {
-        const Data = this.GetUserFromUsernameStatement.get(
-            {
-                $username: Username
-            }
-        )
-        if (!Data) return null
-        return new User(this.FileDB, this.SQL, Data)
-    }
 }
 
 export default Database
