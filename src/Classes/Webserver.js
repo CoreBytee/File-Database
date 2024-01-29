@@ -12,7 +12,7 @@ class Webserver {
         this.App = new Elysia()
 
         this.App.onError(({ code, error }) => {
-            console.log(error.toString())
+            throw error
         })
 
         this.App.use(HTML())
