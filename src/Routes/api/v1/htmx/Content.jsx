@@ -1,4 +1,4 @@
-import GalleryItem from "../../../../Components/GalleryItem"
+import GalleryItem from "../../../../Components/GalleryTile"
 
 export default function Login(FileDB, App) {
     console.log("hi")
@@ -7,7 +7,7 @@ export default function Login(FileDB, App) {
         async (Request) => {
             const PageName = Request.body.pagename || "gallery"
             if (PageName == "gallery") {
-                <GalleryItem />
+                return <GalleryItem />
             } else if (PageName == "settings") {
                     
             }
