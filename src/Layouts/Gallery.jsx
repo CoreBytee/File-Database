@@ -1,13 +1,17 @@
 import Root from "../Components/Root"
-import Center from "../Components/Center"
 import Topbar from "../Components/Topbar"
 import MainView from "../Components/MainView"
+import GallerySidebar from "../Components/GallerySidebar"
+import Gallery from "../Components/Gallery"
 
 export default function GalleryPage({ children }) {
     return (
         <Root>
             <Topbar />
-            <MainView />
+            <MainView>
+                <Gallery />
+                <GallerySidebar />
+            </MainView>
         </Root>
     )
 }
