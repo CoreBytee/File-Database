@@ -1,5 +1,5 @@
 export default function Login(FileDB, App) {
-    App.post(
+    App.get(
         "/api/v1/htmx/logout",
         async (Request) => {
             Request.cookie.authentication.set(
@@ -9,9 +9,9 @@ export default function Login(FileDB, App) {
                     path: "/",
                 }
             )
-            Request.set.headers = {
-                "Hx-Refresh": "true"
-            }
+            console.log("Logout")
+            Request.set.status = 302
+            Request.set.headers = { location: "/" }
             return "Success"
         }
     )
