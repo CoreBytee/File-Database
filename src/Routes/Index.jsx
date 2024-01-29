@@ -1,5 +1,4 @@
 import CheckAuthentication from "../Helpers/CheckAuthentication"
-import LoginPage from "../Layouts/LoginPage"
 
 export default function Index(FileDB, App) {
     App.get(
