@@ -1,11 +1,11 @@
-import ModeSwitch from "./ModeSwitch.jsx"
-
 export default function Topbar() {
     return (
         <div class="Topbar">
-            <ModeSwitch />
             <a class="header">FILEDB</a>
-            <p hx-post="/api/v1/htmx/logout" class="logoutbutton">logout</p>
+            <a href="/gallery">Gallery</a>
+            <a href="/upload">Upload</a>
+            <a href="/settings">Settings</a>
+            <a href="/api/v1/htmx/logout" class="logoutbutton">logout</a>
         </div>
     )
 }

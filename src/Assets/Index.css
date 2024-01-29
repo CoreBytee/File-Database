@@ -149,8 +149,8 @@ body {
   background-color: var(--color-floating);
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
   padding: 5px;
 }
 .Topbar .header {
@@ -159,7 +159,11 @@ body {
   font-size: 2rem;
   letter-spacing: 1px;
 }
-.Topbar .logoutbutton {
+.Topbar a[href] {
   color: var(--color-link);
   cursor: pointer;
+  text-decoration: none;
+}
+.Topbar .logoutbutton {
+  margin-left: auto;
 }

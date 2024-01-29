@@ -181,8 +181,8 @@ html, body {
 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 10px;
 
     padding: 5px;
 
@@ -193,8 +193,13 @@ html, body {
         letter-spacing: 1px;
     }
 
-    .logoutbutton {
+    a[href] {
         color: var(--color-link);
         cursor: pointer;
+        text-decoration: none;
+    }
+
+    .logoutbutton {
+        margin-left: auto;
     }
 }
