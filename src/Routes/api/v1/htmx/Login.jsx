@@ -1,3 +1,5 @@
+import User from "../../../../Classes/User"
+
 export default function Login(FileDB, App) {
     const UnknownUserMessage = "Unknown User or Password"
     App.post(
@@ -6,9 +8,9 @@ export default function Login(FileDB, App) {
             const Username = Request.body.username
             const Password = Request.body.password
 
-            const User = await FileDB.Database.GetUserFromUsername(Username)
-            if (!User) return UnknownUserMessage
-            if (!await User.CheckPassword(Password)) return UnknownUserMessage
+            const FoundUser = await User.FromUsername(Username)
+            if (!FoundUser) return UnknownUserMessage
+            if (!await FoundUser.CheckPassword(Password)) return UnknownUserMessage
 
             const Token = await Request.JWT.sign(
                 {
