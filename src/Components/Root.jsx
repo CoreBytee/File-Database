@@ -20,6 +20,10 @@ export default function Root({ children }) {
 
                 {/* Icons */}
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></link>
+
+                {/* Meta */}
+                <link rel="manifest" href="/assets/image/favicon/site.webmanifest" />
+                <link rel="shortcut icon" href="/assets/image/favicon/favicon.ico" type="image/x-icon" />
             </head>
             <body>
                 {children}
