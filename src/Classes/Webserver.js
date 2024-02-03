@@ -37,10 +37,8 @@ class Webserver {
     }
 
     Routes() {
-        require("../Routes/api/v1/htmx/Content").default(this.FileDB, this.App)
         require("../Routes/api/v1/htmx/Login").default(this.FileDB, this.App)
         require("../Routes/api/v1/htmx/Logout").default(this.FileDB, this.App)
-        require("../Routes/api/v1/htmx/UserModeSwitch").default(this.FileDB, this.App)
         require("../Routes/gallery/Index").default(this.FileDB, this.App)
         require("../Routes/Index").default(this.FileDB, this.App)
     }
