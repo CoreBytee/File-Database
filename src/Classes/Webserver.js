@@ -37,10 +37,12 @@ class Webserver {
     }
 
     Routes() {
-        const Scanner = new Glob("**/*.jsx")
-        for (const FilePath of Scanner.scanSync(`${import.meta.dir}/../Routes/`)) {
-            require(`../Routes/${FilePath}`).default(this.FileDB, this.App)
-        }
+        require("../Routes/api/v1/htmx/Content").default(this.FileDB, this.App)
+        require("../Routes/api/v1/htmx/Login").default(this.FileDB, this.App)
+        require("../Routes/api/v1/htmx/Logout").default(this.FileDB, this.App)
+        require("../Routes/api/v1/htmx/UserModeSwitch").default(this.FileDB, this.App)
+        require("../Routes/gallery/Index").default(this.FileDB, this.App)
+        require("../Routes/Index").default(this.FileDB, this.App)
     }
 
     Listen() {
