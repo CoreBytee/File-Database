@@ -23,6 +23,18 @@ class Database {
             );
         `)
 
+        this.SQL.exec(`
+            CREATE TABLE IF NOT EXISTS "Files" (
+                "Id"	INTEGER NOT NULL UNIQUE,
+                "Hash"	TEXT NOT NULL UNIQUE,
+                "FileName"	TEXT NOT NULL,
+                "Size"	INTEGER NOT NULL,
+                "Uploaded"	INTEGER NOT NULL,
+                "Uploader"	INTEGER NOT NULL,
+                PRIMARY KEY("Id" AUTOINCREMENT)
+            );
+        `)
+
         // Check if admin user exists
         const adminUser = this.SQL.prepare(`SELECT * FROM Users WHERE Id = 1`).get()
         if (!adminUser) {
