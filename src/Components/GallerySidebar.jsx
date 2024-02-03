@@ -1,7 +1,7 @@
 export default function GallerySidebar() {
     return (
-        <div class="GallerySidebar">
-            
+        <div class="GallerySidebar sidebar">
+        
         </div>
     )
 }

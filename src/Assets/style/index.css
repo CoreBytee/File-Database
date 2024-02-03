@@ -83,13 +83,20 @@ body {
   font-weight: bold;
   text-align: center;
 }
-.TabSelector {
-  background-color: var(--color-floating);
-  padding: 20px;
-  border-radius: 10px;
-}
-.TabSelector select {
+.MainView {
   width: 100%;
+  max-width: var(--max-content-width);
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+.MainView .maincontent {
+  width: 100%;
+}
+.MainView .sidebar {
+  width: 40%;
 }
 .Topbar {
   width: 100%;
@@ -99,7 +106,7 @@ body {
 .Topbar .topbarcontent {
   width: 100%;
   height: 100%;
-  max-width: 1000px;
+  max-width: var(--max-content-width);
   margin: auto;
   display: flex;
   flex-direction: row;
