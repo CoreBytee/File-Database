@@ -108,6 +108,13 @@ body {
 }
 .MainView .sidebar {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.SettingsSidebar p.header {
+  font-family: var(--font-bebasneue);
+  font-size: 2rem;
 }
 .Topbar {
   width: 100%;
