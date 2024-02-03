@@ -147,23 +147,29 @@ body {
   width: 100%;
   height: 50px;
   background-color: var(--color-floating);
+}
+.Topbar .topbarcontent {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
   padding: 5px;
 }
-.Topbar .header {
+.Topbar .topbarcontent .header {
   font-family: var(--font-bebasneue);
   font-weight: bold;
   font-size: 2rem;
   letter-spacing: 1px;
 }
-.Topbar a[href] {
+.Topbar .topbarcontent a[href] {
   color: var(--color-link);
   cursor: pointer;
   text-decoration: none;
 }
-.Topbar .logoutbutton {
+.Topbar .topbarcontent .logoutbutton {
   margin-left: auto;
 }
