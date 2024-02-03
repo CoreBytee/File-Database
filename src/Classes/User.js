@@ -19,6 +19,22 @@ class User {
     async CheckPassword(Password) {
         return await Bun.password.verify(Password, this.Data.PasswordHash)
     }
+
+    get Id() {
+        return this.Data.Id
+    }
+
+    get Username() {
+        return this.Data.Username
+    }
+
+    get Email() {
+        return this.Data.Email
+    }
+
+    get Admin() {
+        return !!this.Data.Admin
+    }
 }
 
 export default User
