@@ -15,8 +15,10 @@ class Database {
             CREATE TABLE IF NOT EXISTS "Users" (
                 "Id"	INTEGER NOT NULL UNIQUE,
                 "Username"	TEXT NOT NULL UNIQUE,
+                "Email"	TEXT,
                 "PasswordHash"	TEXT,
                 "Admin"	INTEGER NOT NULL DEFAULT 0,
+                "APIKey"	TEXT UNIQUE,
                 PRIMARY KEY("Id" AUTOINCREMENT)
             );
         `)
