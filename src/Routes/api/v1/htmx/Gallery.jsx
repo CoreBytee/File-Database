@@ -1,6 +1,6 @@
 import Gallery from "../../../../Components/Gallery"
 
-export default function Gallery(FileDB, App) {
+export default function GalleryMethod(FileDB, App) {
     App.get(
         "/api/v1/htmx/gallery",
         async (Request) => {

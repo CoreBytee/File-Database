@@ -1,6 +1,6 @@
 import User from "../../../../Classes/User"
 
-export default function Login(FileDB, App) {
+export default function LoginMethod(FileDB, App) {
     const UnknownUserMessage = "Unknown User or Password"
     App.post(
         "/api/v1/htmx/login",
