@@ -125,6 +125,15 @@ body {
     gap: 20px;
     margin-top: 20px;
 
+    @media screen and (max-width: 1500px) {
+        padding: 0px 20px;
+        flex-direction: column;
+
+        .sidebar {
+            width: 100% !important;
+        }
+    }
+
     .maincontent {
         width: 100%;
     }
@@ -137,7 +146,20 @@ body {
     }
 }
 
+.Settings {
+    input {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
 .SettingsSidebar {
+    img {
+        width: 100%;
+        border-radius: 100%;
+        max-width: 120px;
+    }
+
     p.header {
         font-family: var(--font-bebasneue);
         font-size: 2rem;

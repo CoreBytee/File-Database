@@ -103,6 +103,15 @@ body {
   gap: 20px;
   margin-top: 20px;
 }
+@media screen and (max-width: 1500px) {
+  .MainView {
+    padding: 0px 20px;
+    flex-direction: column;
+  }
+  .MainView .sidebar {
+    width: 100% !important;
+  }
+}
 .MainView .maincontent {
   width: 100%;
 }
@@ -111,6 +120,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.Settings input {
+  width: 100%;
+  max-width: 500px;
+}
+.SettingsSidebar img {
+  width: 100%;
+  border-radius: 100%;
+  max-width: 120px;
 }
 .SettingsSidebar p.header {
   font-family: var(--font-bebasneue);
