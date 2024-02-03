@@ -10,6 +10,6 @@ export default async function CheckAuthentication(Request) {
         Request.set.headers["Content-Type"] = "text/html"
         return <LoginPage />
     } else {
-        Request.User = await User.FromUsername(TokenData.Username)
+        Request.User = await User.FromId(TokenData.UserId)
     }
 }

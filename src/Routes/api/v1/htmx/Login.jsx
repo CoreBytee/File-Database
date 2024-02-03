@@ -14,6 +14,7 @@ export default function Login(FileDB, App) {
 
             const Token = await Request.JWT.sign(
                 {
+                    UserId: FoundUser.Id,
                     Username,
                 }
             )
