@@ -1,4 +1,4 @@
-export default function Login(FileDB, App) {
+export default function Logout(FileDB, App) {
     App.get(
         "/api/v1/htmx/logout",
         async (Request) => {
