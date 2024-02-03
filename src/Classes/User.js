@@ -6,6 +6,16 @@ class User {
         this.Data = Data
     }
 
+    static async FromId(Id) {
+        const Data = await User.SQL.prepare(`SELECT * FROM Users WHERE Id = $id`).get(
+            {
+                $id: Id
+            }
+        )
+        if (!Data) return null
+        return new User(Data)
+    }
+
     static async FromUsername(Username) {
         const Data = await User.SQL.prepare(`SELECT * FROM Users WHERE Username = $username`).get(
             {
