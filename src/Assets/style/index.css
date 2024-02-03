@@ -30,6 +30,11 @@ p {
 * {
   box-sizing: border-box;
 }
+.floatingblock {
+  background-color: var(--color-floating);
+  border-radius: 20px;
+  padding: 20px;
+}
 html,
 body {
   margin: 0px;
@@ -55,6 +60,12 @@ body {
   font-size: 0.75rem;
   text-align: center;
   width: 100%;
+}
+.GalleryDisplayForm select {
+  margin-bottom: 10px;
+}
+.GalleryDisplayForm select:last-child {
+  margin-bottom: 0px;
 }
 .Login {
   display: flex;
@@ -96,7 +107,7 @@ body {
   width: 100%;
 }
 .MainView .sidebar {
-  width: 40%;
+  width: 30%;
 }
 .Topbar {
   width: 100%;
