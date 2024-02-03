@@ -9,7 +9,6 @@ export default function Login(FileDB, App) {
                     path: "/",
                 }
             )
-            console.log("Logout")
             Request.set.status = 302
             Request.set.headers = { location: "/" }
             return "Success"
