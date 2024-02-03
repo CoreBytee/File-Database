@@ -45,6 +45,13 @@ class User {
     get Admin() {
         return !!this.Data.Admin
     }
+
+    get Gravatar() {
+        const Email = (this.Email || "admin@example.com").trim().toLowerCase()
+        const Hasher = new Bun.CryptoHasher("sha256")
+        Hasher.update(Email)
+        return `https://www.gravatar.com/avatar/${Hasher.digest("hex")}?s=512&d=retro`
+    }
 }
 
 export default User
