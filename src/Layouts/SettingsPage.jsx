@@ -9,7 +9,7 @@ export default function SettingsPage({ children, user }) {
         <Root>
             <Topbar />
             <MainView>
-                <Settings />
+                <Settings user={user} />
                 <SettingsSidebar user={user} />
             </MainView>
         </Root>
