@@ -10,9 +10,12 @@ class Webserver {
         this.FileDB = FileDB
         this.App = new Elysia()
 
-        this.App.onError(({ code, error }) => {
-            throw error
-        })
+        this.App.onError(
+            ({ code, error }) => {
+                if (code == "NOT_FOUND") { return "Not found" }
+                throw error
+            }
+        )
 
         this.App.use(HTML())
 
@@ -24,7 +27,7 @@ class Webserver {
                 }
             )
         )
-        
+
         this.App.use(
             Static(
                 {
