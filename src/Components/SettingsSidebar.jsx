@@ -4,11 +4,11 @@ export default function SettingsSidebar({ user }) {
         <div class="SettingsSidebar sidebar">
             <div class="userinfo floatingblock">
                 <img src={user.Gravatar} alt="" />
-                <p class="header">{user.Username}</p>
+                <h1>{user.Username}</h1>
             </div>
 
             <div class="downloads floatingblock">
-                <p class="header">Downloads</p>
+                <h1>Downloads</h1>
                 <p>Here you can download configuration files for your capturing applications.</p>
             </div>
 
