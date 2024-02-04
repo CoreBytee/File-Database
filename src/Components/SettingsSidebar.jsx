@@ -1,5 +1,4 @@
 export default function SettingsSidebar({ user }) {
-    console.log(user)
     return (
         <div class="SettingsSidebar sidebar">
             <div class="userinfo floatingblock">
