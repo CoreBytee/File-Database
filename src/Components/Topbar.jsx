@@ -6,7 +6,7 @@ export default function Topbar() {
                 <a href="/gallery">Gallery</a>
                 <a href="/upload">Upload</a>
                 <a href="/settings">Settings</a>
-                <a href="/api/v1/htmx/logout" class="logoutbutton">logout</a>
+                <a href="/api/v1/htmx/logout" class="logoutbutton">Logout</a>
             </div>
         </div>
     )
