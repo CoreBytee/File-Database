@@ -5,8 +5,11 @@
   --color-floating: #2f2f2f;
   --color-input: #3f3f3f;
   --color-link: #00aeff;
+  --color-accent: #4898da;
 }
-input {
+input,
+select,
+textarea {
   appearance: none;
   background-color: var(--color-input);
   border: none;
@@ -15,17 +18,22 @@ input {
   color: white;
   font-size: 1rem;
 }
-select {
-  appearance: none;
-  background-color: var(--color-input);
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  color: white;
-  font-size: 1rem;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: var(--color-accent) 2px solid;
 }
 p {
   margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-bebasneue);
 }
 * {
   box-sizing: border-box;
@@ -34,6 +42,10 @@ p {
   background-color: var(--color-floating);
   border-radius: 20px;
   padding: 20px;
+}
+.error {
+  color: red;
+  font-weight: bold;
 }
 html,
 body {
@@ -89,11 +101,6 @@ body {
   flex-direction: column;
   gap: 5px;
 }
-.Login .error {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-}
 .MainView {
   width: 100%;
   max-width: var(--max-content-width);
@@ -129,10 +136,6 @@ body {
   width: 100%;
   border-radius: 100%;
   max-width: 120px;
-}
-.SettingsSidebar p.header {
-  font-family: var(--font-bebasneue);
-  font-size: 2rem;
 }
 .Topbar {
   width: 100%;
