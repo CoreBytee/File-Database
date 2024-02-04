@@ -16,6 +16,12 @@ export default function Settings({ user }) {
                 <input type="submit" value="Save changes" /><br />
                 <p class="error"></p>
             </form>
+
+            <div class="floatingblock">
+                <h1>API-Token</h1>
+                <p>For security reasons you can only view your API key after you regenerate it.</p><br />
+                <input type="submit" value="Regenerate API key" hx-get="/api/v1/htmx/regeneratekey" hx-swap="outerHTML" />
+            </div>
         </div>
     )
 }

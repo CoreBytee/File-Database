@@ -87,6 +87,20 @@ class User {
         )
     }
 
+    get APIKey() {
+        return this.Data.APIKey
+    }
+
+    async SetAPIKey(APIKey) {
+        this.Data.APIKey = APIKey
+        await User.SQL.prepare(`UPDATE Users SET APIKey = $apikey WHERE Id = $id`).run(
+            {
+                $apikey: APIKey,
+                $id: this.Id
+            }
+        )
+    }
+
     get Gravatar() {
         const Email = (this.Email || "admin@example.com").trim().toLowerCase()
         const Hasher = new Bun.CryptoHasher("sha256")

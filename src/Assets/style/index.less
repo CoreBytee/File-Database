@@ -5,8 +5,13 @@
     --color-background: #1f1f1f;
     --color-floating: #2f2f2f;
     --color-input: #3f3f3f;
+    --color-input-hover: #4f4f4f;
     --color-link: #00aeff;
     --color-accent: #4898da;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 input, select, textarea {
@@ -18,8 +23,14 @@ input, select, textarea {
     color: white;
     font-size: 1rem;
 
+    transition: background-color 0.2s;
+
     &:focus {
         outline: var(--color-accent) 2px solid;
+    }
+
+    &:hover {
+        background-color: var(--color-input-hover);
     }
 }
 
@@ -32,8 +43,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-bebasneue);
 }
 
-* {
-    box-sizing: border-box;
+code {
+    background-color: var(--color-input);
+    padding: 10px;
+    border-radius: 10px;
+    user-select: all;
 }
 
 .floatingblock {
