@@ -6,9 +6,10 @@
     --color-floating: #2f2f2f;
     --color-input: #3f3f3f;
     --color-link: #00aeff;
+    --color-accent: #4898da;
 }
 
-input {
+input, select, textarea {
     appearance: none;
     background-color: var(--color-input);
     border: none;
@@ -16,16 +17,10 @@ input {
     border-radius: 10px;
     color: white;
     font-size: 1rem;
-}
 
-select {
-    appearance: none;
-    background-color: var(--color-input);
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    font-size: 1rem;
+    &:focus {
+        outline: var(--color-accent) 2px solid;
+    }
 }
 
 p {
