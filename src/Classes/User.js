@@ -30,6 +30,17 @@ class User {
         return await Bun.password.verify(Password, this.Data.PasswordHash)
     }
 
+    async SetPassword(Password) {
+        const Hash = await Bun.password.hash(Password)
+        this.Data.PasswordHash = Hash
+        await User.SQL.prepare(`UPDATE Users SET PasswordHash = $hash WHERE Id = $id`).run(
+            {
+                $hash: Hash,
+                $id: this.Id
+            }
+        )
+    }
+
     get Id() {
         return this.Data.Id
     }
@@ -38,12 +49,42 @@ class User {
         return this.Data.Username
     }
 
+    async SetUsername(Username) {
+        this.Data.Username = Username
+        await User.SQL.prepare(`UPDATE Users SET Username = $username WHERE Id = $id`).run(
+            {
+                $username: Username,
+                $id: this.Id
+            }
+        )
+    }
+
     get Email() {
         return this.Data.Email
     }
 
+    async SetEmail(Email) {
+        this.Data.Email = Email
+        await User.SQL.prepare(`UPDATE Users SET Email = $email WHERE Id = $id`).run(
+            {
+                $email: Email,
+                $id: this.Id
+            }
+        )
+    }
+
     get Admin() {
         return !!this.Data.Admin
+    }
+
+    async SetAdmin(Admin) {
+        this.Data.Admin = Admin
+        await User.SQL.prepare(`UPDATE Users SET Admin = $admin WHERE Id = $id`).run(
+            {
+                $admin: Admin,
+                $id: this.Id
+            }
+        )
     }
 
     get Gravatar() {
