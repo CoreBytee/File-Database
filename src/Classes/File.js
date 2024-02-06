@@ -4,6 +4,13 @@ import { extname } from "path"
 import textExtensions from "text-extensions"
 import imageExtensions from "image-extensions"
 import videoExtensions from "video-extensions"
+import User from "./User"
+import mime from "mime"
+
+function ReadableFileSize(size) {
+    const i = Math.floor(Math.log(size) / Math.log(1024))
+    return `${(size / Math.pow(1024, i)).toFixed(2) * 1} ${['B', 'KB', 'MB', 'GB', 'TB'][i]}`
+}
 
 class File {
     static SQL = new Database("./FileDB.sqlite")
@@ -61,6 +68,26 @@ class File {
         return `./Files/${this.Data.Hash}`
     }
 
+    async GetUser() {
+        return await User.FromId(this.Data.Uploader)
+    }
+
+    get Name() {
+        return this.Data.FileName
+    }
+
+    get Size() {
+        return this.Data.Size
+    }
+
+    get ReadableSize() {
+        return ReadableFileSize(this.Size)
+    }
+
+    get ShortUploadDate() {
+        return new Date(this.Data.UploadDate).toLocaleDateString()
+    }
+
     get DisplayType() {
         if (imageExtensions.includes(this.Extention)) { return "image" }
         if (textExtensions.includes(this.Extention)) { return "text" }
@@ -70,6 +97,18 @@ class File {
 
     get Hash() {
         return this.Data.Hash
+    }
+
+    get Link() {
+        return `${Bun.env.HOST}:${Bun.env.PORT}/file/${this.Data.Hash}`
+    }
+
+    get RawLink() {
+        return `${Bun.env.HOST}:${Bun.env.PORT}/api/v1/file/${this.Data.Hash}`
+    }
+
+    get MimeType() {
+        return mime.getType(this.Extention)
     }
 }
 

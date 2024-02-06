@@ -7,10 +7,10 @@ export default function Index(FileDB, App) {
         "/file/:hash",
         async (Request) => {
             const FileInstance = await File.FromHash(Request.params.hash)
-            Request.set.headers = {
-                
+            if (!FileInstance) {
+                return "File not found"
             }
-            return <FilePage file={FileInstance} />
+            return <FilePage file={FileInstance} uploader={await FileInstance.GetUser()} />
         },
         {
             params: t.Object(

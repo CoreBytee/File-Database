@@ -46,6 +46,10 @@ h6 {
   margin: 0;
   font-family: var(--font-bebasneue);
 }
+a[href] {
+  color: var(--color-link);
+  text-decoration: none;
+}
 code {
   background-color: var(--color-input);
   padding: 10px;
@@ -93,6 +97,34 @@ body {
   font-size: 0.75rem;
   text-align: center;
   width: 100%;
+}
+.FileDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.FileDisplay .data {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.FileDisplay .data img {
+  height: 100%;
+}
+.FileDisplay .data .uploader {
+  margin-left: auto;
+  text-align: right;
+  padding-left: 30px;
+}
+.FileDisplay > img,
+.FileDisplay > video,
+.FileDisplay > code {
+  max-width: 60vw;
+  max-height: 60vh;
 }
 .GalleryDisplayForm select {
   margin-bottom: 10px;
@@ -183,11 +215,6 @@ body {
   font-size: 2rem;
   letter-spacing: 1px;
 }
-.Topbar .topbarcontent a[href] {
-  color: var(--color-link);
-  cursor: pointer;
-  text-decoration: none;
-}
 .Topbar .topbarcontent .logoutbutton {
   margin-left: auto;
 }
@@ -217,4 +244,15 @@ body {
 }
 .Upload form progress[value="0"] {
   display: none;
+}
+.Upload .complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+}
+.Upload .complete i {
+  font-size: 6rem;
 }

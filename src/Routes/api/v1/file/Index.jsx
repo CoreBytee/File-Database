@@ -10,6 +10,11 @@ export default function GalleryMethod(FileDB, App) {
                 Request.set.status = 404
                 return "File not found"
             }
+            Request.set.status = 200
+            Request.set.headers = {
+                "Content-Type": FileInstance.MimeType,
+                "Content-Disposition": `attachment; filename="${FileInstance.Name}"`
+            }
             return Bun.file(await FileInstance.GetFilePath())
         },
         {
