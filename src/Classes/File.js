@@ -19,7 +19,7 @@ class File {
         const ExistingFile = await File.FromHash(Hash)
         if (ExistingFile) { return ExistingFile }
 
-        await File.SQL.prepare(`INSERT INTO Files (Hash, FileName, Size, UploadedDate, Uploader) VALUES ($hash, $filename, $size, $date, $uploader)`).run(
+        await File.SQL.prepare(`INSERT INTO Files (Hash, FileName, Size, UploadDate, Uploader) VALUES ($hash, $filename, $size, $date, $uploader)`).run(
             {
                 $hash: Hash,
                 $filename: FileName,

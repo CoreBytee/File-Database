@@ -29,7 +29,7 @@ class Database {
                 "Hash"	TEXT NOT NULL UNIQUE,
                 "FileName"	TEXT NOT NULL,
                 "Size"	INTEGER NOT NULL,
-                "UploadedDate"	INTEGER NOT NULL,
+                "UploadDate"	INTEGER NOT NULL,
                 "Uploader"	INTEGER NOT NULL,
                 PRIMARY KEY("Id" AUTOINCREMENT)
             );
