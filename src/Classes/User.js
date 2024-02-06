@@ -11,6 +11,34 @@ class User {
         this.Data = Data
     }
 
+    static async Create(Username, Password, Email, Admin = false, ForceId) {
+        const PasswordHash = await Bun.password.hash(Password)
+        const APIKey = GenerateAPIKey()
+
+        if (ForceId) {
+            await User.SQL.prepare(`INSERT INTO Users (Id, Username, PasswordHash, Email, Admin, APIKey) VALUES ($id, $username, $password, $email, $admin, $apikey)`).run(
+                {
+                    $id: ForceId,
+                    $username: Username,
+                    $password: PasswordHash,
+                    $email: Email,
+                    $admin: Admin,
+                    $apikey: APIKey
+                }
+            )
+        } else {
+            await User.SQL.prepare(`INSERT INTO Users (Username, PasswordHash, Email, Admin, APIKey) VALUES ($username, $password, $email, $admin, $apikey)`).run(
+                {
+                    $username: Username,
+                    $password: PasswordHash,
+                    $email: Email,
+                    $admin: Admin,
+                    $apikey: APIKey
+                }
+            )
+        }
+    }
+
     static async FromId(Id) {
         const Data = await User.SQL.prepare(`SELECT * FROM Users WHERE Id = $id`).get(
             {

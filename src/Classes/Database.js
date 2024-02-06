@@ -36,15 +36,10 @@ class Database {
         `)
 
         // Check if admin user exists
-        const adminUser = this.SQL.prepare(`SELECT * FROM Users WHERE Id = 1`).get()
-        if (!adminUser) {
-            // Create admin user
+        const AdminUser = await User.FromId(1)
+        if (!AdminUser) {
             console.log('Creating admin user...')
-            this.SQL.prepare(`INSERT INTO Users (Id, Username, PasswordHash, Admin) VALUES (1, 'admin', $password, 1)`).run(
-                {
-                    $password: await Bun.password.hash('admin')
-                }
-            )
+            await User.Create('admin', 'admin', null, true, 1)
         }
     }
 }
