@@ -1,4 +1,9 @@
 import { Database } from "bun:sqlite"
+import Randomstring from "randomstring"
+
+function GenerateAPIKey() {
+    return Randomstring.generate(32)
+}
 
 class User {
     static SQL = new Database("./FileDB.sqlite")
@@ -91,7 +96,8 @@ class User {
         return this.Data.APIKey
     }
 
-    async SetAPIKey(APIKey) {
+    async ResetAPIKey(APIKey) {
+        if (!APIKey) { APIKey = GenerateAPIKey() }
         this.Data.APIKey = APIKey
         await User.SQL.prepare(`UPDATE Users SET APIKey = $apikey WHERE Id = $id`).run(
             {
@@ -99,6 +105,7 @@ class User {
                 $id: this.Id
             }
         )
+        return APIKey
     }
 
     get Gravatar() {
