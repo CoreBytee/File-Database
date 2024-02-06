@@ -11,6 +11,9 @@ class File {
         const Hash = CryptoHasher.hash("md5", FileData, "hex")
         const Size = FileData.size
 
+        const ExistingFile = await File.FromHash(Hash)
+        if (ExistingFile) { return ExistingFile }
+
         await File.SQL.prepare(`INSERT INTO Files (Hash, FileName, Size, UploadedDate, Uploader) VALUES ($hash, $filename, $size, $date, $uploader)`).run(
             {
                 $hash: Hash,
@@ -25,6 +28,8 @@ class File {
             Bun.file(`./Files/${Hash}`),
             FileData
         )
+
+        return await File.FromHash(Hash)
     }
 
     static async FromId(Id) {
