@@ -1,7 +1,7 @@
 export default function Copyright() {
     return (
         <div class="Copyright">
-            © {new Date().getFullYear()} - CoreByte and contributors 
+            <a href="https://github.com/CoreBytee/File-Database" target="_blank">© {new Date().getFullYear()} - CoreByte and contributors</a>
         </div>
     )
 }
