@@ -1,3 +1,4 @@
+import { CryptoHasher } from "bun"
 import { Database } from "bun:sqlite"
 
 class File {
@@ -6,10 +7,40 @@ class File {
         this.Data = Data
     }
 
+    static async Create(FileData, FileName, User) {
+        const Hash = CryptoHasher.hash("md5", FileData, "hex")
+        const Size = FileData.size
+
+        await File.SQL.prepare(`INSERT INTO Files (Hash, FileName, Size, UploadedDate, Uploader) VALUES ($hash, $filename, $size, $date, $uploader)`).run(
+            {
+                $hash: Hash,
+                $filename: FileName,
+                $size: Size,
+                $date: Date.now(),
+                $uploader: User.Id
+            }
+        )
+
+        Bun.write(
+            Bun.file(`./Files/${Hash}`),
+            FileData
+        )
+    }
+
     static async FromId(Id) {
         const Data = await File.SQL.prepare(`SELECT * FROM Files WHERE Id = $id`).get(
             {
                 $id: Id
+            }
+        )
+        if (!Data) return null
+        return new File(Data)
+    }
+
+    static async FromHash(Hash) {
+        const Data = await File.SQL.prepare(`SELECT * FROM Files WHERE Hash = $hash`).get(
+            {
+                $hash: Hash
             }
         )
         if (!Data) return null
