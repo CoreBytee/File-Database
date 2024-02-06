@@ -11,6 +11,13 @@ export default function UploadMethod(FileDB, App) {
             const FileName = basename(Request.body.filename.replaceAll("\\", "/"))
 
             const Upload = await File.Create(FileData, FileName, Request.User)
+
+            return <div class="complete">
+                <h1>Upload complete</h1>
+                <p>Copy this link to share your file or <a href={Upload.Link} target="_blank">view it yourself</a>.</p>
+                <code>{Upload.Link}</code>
+                <a href="/upload">Upload another</a>
+            </div>
         },
         {
             beforeHandle: CheckAuthentication,
