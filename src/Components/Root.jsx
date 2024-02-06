@@ -25,7 +25,7 @@ export default function Root({ children }) {
                 <link rel="manifest" href="/assets/image/favicon/site.webmanifest" />
                 <link rel="shortcut icon" href="/assets/image/favicon/favicon.ico" type="image/x-icon" />
             </head>
-            <body style="--max-content-width: 1500px">
+            <body style="--max-content-width: 1200px">
                 {children}
                 <Copyright />
             </body>
