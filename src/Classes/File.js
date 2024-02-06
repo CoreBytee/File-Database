@@ -1,10 +1,15 @@
 import { CryptoHasher } from "bun"
 import { Database } from "bun:sqlite"
+import { extname } from "path"
+import textExtensions from "text-extensions"
+import imageExtensions from "image-extensions"
+import videoExtensions from "video-extensions"
 
 class File {
     static SQL = new Database("./FileDB.sqlite")
     constructor(Data) {
         this.Data = Data
+        this.Extention = extname(this.Data.FileName).slice(1)
     }
 
     static async Create(FileData, FileName, User) {
@@ -54,6 +59,17 @@ class File {
 
     async GetFilePath() {
         return `./Files/${this.Data.Hash}`
+    }
+
+    get DisplayType() {
+        if (imageExtensions.includes(this.Extention)) { return "image" }
+        if (textExtensions.includes(this.Extention)) { return "text" }
+        if (videoExtensions.includes(this.Extention)) { return "video" }
+        return "other"
+    }
+
+    get Hash() {
+        return this.Data.Hash
     }
 }
 

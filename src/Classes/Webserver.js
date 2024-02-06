@@ -47,6 +47,7 @@ class Webserver {
         require("../Routes/api/v1/htmx/RegenerateKey").default(this.FileDB, this.App)
         require("../Routes/api/v1/htmx/Settings").default(this.FileDB, this.App)
         require("../Routes/api/v1/htmx/Upload").default(this.FileDB, this.App)
+        require("../Routes/file/Index").default(this.FileDB, this.App)
         require("../Routes/gallery/Index").default(this.FileDB, this.App)
         require("../Routes/settings/Index").default(this.FileDB, this.App)
         require("../Routes/upload/Index").default(this.FileDB, this.App)
