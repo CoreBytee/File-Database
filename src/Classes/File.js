@@ -52,6 +52,9 @@ class File {
         return new File(Data)
     }
 
+    async GetFilePath() {
+        return `./Files/${this.Data.Hash}`
+    }
 }
 
 export default File
