@@ -1,6 +1,7 @@
 import { basename } from "path"
 import File from "../../../../Classes/File.js"
 import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import { t } from "elysia"
 
 export default function UploadMethod(FileDB, App) {
     App.post(
@@ -12,7 +13,18 @@ export default function UploadMethod(FileDB, App) {
             const Upload = await File.Create(FileData, FileName, Request.User)
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: CheckAuthentication,
+            body: t.Object(
+                {
+                    file: t.File(),
+                    filename: t.String(
+                        {
+                            maxLength: 255,
+                            error: "Invalid filename entered"
+                        }
+                    )
+                }
+            )
         }
     )
 }

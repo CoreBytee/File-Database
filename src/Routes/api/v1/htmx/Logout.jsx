@@ -1,3 +1,5 @@
+import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+
 export default function LogoutMethod(FileDB, App) {
     App.get(
         "/api/v1/htmx/logout",
@@ -12,6 +14,9 @@ export default function LogoutMethod(FileDB, App) {
             Request.set.status = 302
             Request.set.headers = { location: "/" }
             return "Success"
+        },
+        {
+            beforeHandle: CheckAuthentication
         }
     )
 }

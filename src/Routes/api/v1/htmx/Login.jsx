@@ -1,3 +1,4 @@
+import { t } from "elysia"
 import User from "../../../../Classes/User"
 
 export default function LoginMethod(FileDB, App) {
@@ -32,6 +33,22 @@ export default function LoginMethod(FileDB, App) {
             }
 
             return "Success"
+        },
+        {
+            body: t.Object(
+                {
+                    username: t.String(
+                        {
+                            error: "Username is required"
+                        }
+                    ),
+                    password: t.String(
+                        {
+                            error: "Password is required"
+                        }
+                    )
+                }
+            )
         }
     )
 }
