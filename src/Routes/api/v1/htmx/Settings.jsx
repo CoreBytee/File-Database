@@ -36,7 +36,6 @@ export default function SettingsMethod(FileDB, App) {
                     ),
                     email: t.String(
                         {
-                            format: "email",
                             error: "Invalid email entered",
                             maxLength: 50
                         }
