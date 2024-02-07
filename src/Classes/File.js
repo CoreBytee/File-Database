@@ -7,6 +7,7 @@ import videoExtensions from "video-extensions"
 import User from "./User"
 import mime from "mime"
 import ReadableSize from "../Helpers/ReadableSize"
+import RenderFile from "../Helpers/RenderFile"
 
 class File {
     static SQL = new Database("./FileDB.sqlite")
@@ -68,6 +69,10 @@ class File {
         return await User.FromId(this.Data.Uploader)
     }
 
+    Render() {
+        return RenderFile(this)
+    }
+
     get Name() {
         return this.Data.FileName
     }
@@ -106,6 +111,8 @@ class File {
     get MimeType() {
         return mime.getType(this.Extention)
     }
+
+
 }
 
 export default File

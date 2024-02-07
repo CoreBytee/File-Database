@@ -1,17 +1,7 @@
 export default function FileDisplay({ file, uploader }) {
     const File = file
     const User = uploader
-
-    const DisplayType = file.DisplayType
-    let Display
-    if (DisplayType == "image") {
-        Display = <img src={File.RawLink} alt={File.Hash} />
-    } else if (DisplayType == "video") {
-        Display = <video controls><source src={File.RawLink} type="video/mp4" /></video>
-    } else if (DisplayType == "text") {
-        Display = <code hx-get={RawLink} hx-swap="innerHTML"></code>
-    }
-
+    
     return (
         <div class="FileDisplay floatingblock">
             <div class="data">
@@ -26,7 +16,7 @@ export default function FileDisplay({ file, uploader }) {
                 </div>
                 <img src={User.Gravatar} alt="usericon" />
             </div>
-            {Display}
+            {File.Render()}
         </div>
     )
 }
