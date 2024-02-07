@@ -24,6 +24,7 @@ export default function Root({ children }) {
                 {/* Meta */}
                 <link rel="manifest" href="/assets/image/favicon/site.webmanifest" />
                 <link rel="shortcut icon" href="/assets/image/favicon/favicon.ico" type="image/x-icon" />
+                <meta name="description" content="FILEDB File Storage" />
             </head>
             <body style="--max-content-width: 1200px">
                 {children}
