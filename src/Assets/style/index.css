@@ -126,11 +126,71 @@ body {
   max-width: 60vw;
   max-height: 60vh;
 }
-.GalleryDisplayForm select {
+.Gallery > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+.GalleryDisplayForm select,
+.GalleryDisplayForm input {
   margin-bottom: 10px;
 }
-.GalleryDisplayForm select:last-child {
-  margin-bottom: 0px;
+.GalleryDisplayForm input[type="checkbox"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(2px);
+}
+.GalleryDisplayForm input[type="checkbox"]::after {
+  content: "\F282";
+  display: block;
+  font-family: bootstrap-icons;
+}
+.GalleryDisplayForm input[type="checkbox"]:checked::after {
+  content: "\F286" !important;
+}
+.GalleryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.GalleryItem.largegrid .contentcontainer,
+.GalleryItem.smallgrid .contentcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  aspect-ratio: 1/1;
+}
+.GalleryItem.largegrid .data,
+.GalleryItem.smallgrid .data {
+  width: 100%;
+  text-align: center;
+}
+.GalleryItem.largegrid .data p,
+.GalleryItem.smallgrid .data p {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.GalleryItem.largegrid img,
+.GalleryItem.smallgrid img,
+.GalleryItem.largegrid video,
+.GalleryItem.smallgrid video {
+  width: 100%;
+  height: 100%;
+}
+.GalleryItem.largegrid {
+  width: calc(50% - 20px);
+}
+.GalleryItem.smallgrid {
+  width: calc(33.3333% - 20px);
 }
 .Login {
   display: flex;

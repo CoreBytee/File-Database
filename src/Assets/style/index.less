@@ -138,17 +138,84 @@ body {
     }
 }
 
-.GalleryDisplayForm {
-    select {
-        margin-bottom: 10px;
-
-        &:last-child {
-            margin-bottom: 0px;
-        }
+.Gallery {
+    & > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
     }
 }
 
-.GalleryTile {}
+.GalleryDisplayForm {
+    select, input {
+        margin-bottom: 10px;
+    }
+
+    input[type="checkbox"] {
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(2px);
+
+        &::after {
+            content: "\F282";
+            display: block;
+            font-family: bootstrap-icons;
+        }
+
+        &:checked {
+            &::after {
+                content: "\F286" !important;
+            }
+        } 
+    }
+}
+
+.GalleryItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+
+    &.largegrid, &.smallgrid {
+        .contentcontainer {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            aspect-ratio: 1/1;
+        }
+        .data {
+            width: 100%;
+            text-align: center;
+            p {
+                max-width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+        img, video {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.largegrid {
+        width: calc(50% - 20px);
+    }
+
+    &.smallgrid {
+        width: calc(33.3333% - 20px);
+    }
+}
 
 .Login {
     display: flex;

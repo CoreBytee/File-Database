@@ -61,6 +61,16 @@ class File {
         return new File(Data)
     }
 
+    static async List(Count, Offset, OrderBy, Reverse = false) {
+        const Data = await File.SQL.prepare(`SELECT * FROM Files ORDER BY ${OrderBy} ${Reverse ? "DESC" : "ASC"} LIMIT $count OFFSET $offset`).all(
+            {
+                $count: Count,
+                $offset: Offset
+            }
+        )
+        return Data.map(FileData => new File(FileData))
+    }
+
     async GetFilePath() {
         return `./Files/${this.Data.Hash}`
     }
