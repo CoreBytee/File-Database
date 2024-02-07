@@ -2,7 +2,6 @@ import Elysia from "elysia"
 import { jwt as JWT } from "@elysiajs/jwt"
 import { html as HTML } from "@elysiajs/html"
 import { staticPlugin as Static } from "@elysiajs/static"
-import { Glob } from "bun"
 
 class Webserver {
     constructor(Port, FileDB) {
