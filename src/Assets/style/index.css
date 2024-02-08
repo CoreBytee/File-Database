@@ -157,6 +157,37 @@ body {
   align-items: center;
   gap: 10px;
 }
+.GalleryItem.largegrid,
+.GalleryItem.smallgrid {
+  position: relative;
+}
+.GalleryItem.largegrid input[type="checkbox"],
+.GalleryItem.smallgrid input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  margin: 0;
+  transform: translateY(-20px);
+  border-radius: 20px;
+}
+.GalleryItem.largegrid input[type="checkbox"]:focus,
+.GalleryItem.smallgrid input[type="checkbox"]:focus {
+  outline: none;
+}
+.GalleryItem.largegrid input[type="checkbox"]:checked,
+.GalleryItem.smallgrid input[type="checkbox"]:checked {
+  opacity: 1;
+  border: 2px solid var(--color-accent);
+}
+.GalleryItem.largegrid:hover .contentcontainer img,
+.GalleryItem.smallgrid:hover .contentcontainer img {
+  filter: brightness(0.5) blur(10px);
+}
+.GalleryItem.largegrid:hover .contentcontainer i,
+.GalleryItem.smallgrid:hover .contentcontainer i {
+  opacity: 0.5;
+}
 .GalleryItem.largegrid .contentcontainer,
 .GalleryItem.smallgrid .contentcontainer {
   width: 100%;
@@ -166,6 +197,19 @@ body {
   justify-content: center;
   flex-direction: column;
   aspect-ratio: 1/1;
+}
+.GalleryItem.largegrid .contentcontainer img,
+.GalleryItem.smallgrid .contentcontainer img {
+  pointer-events: none;
+  transition: filter 0.2s;
+}
+.GalleryItem.largegrid .contentcontainer i,
+.GalleryItem.smallgrid .contentcontainer i {
+  pointer-events: none;
+  font-size: 6rem;
+  position: absolute;
+  transition: opacity 0.2s;
+  opacity: 0;
 }
 .GalleryItem.largegrid .data,
 .GalleryItem.smallgrid .data {

@@ -9,11 +9,16 @@ import mime from "mime"
 import ReadableSize from "../Helpers/ReadableSize"
 import RenderFile from "../Helpers/RenderFile"
 
+const IconOverwrites = {
+    zip: "bi-file-earmark-zip",
+}
+
 class File {
     static SQL = new Database("./FileDB.sqlite")
     constructor(Data) {
         this.Data = Data
         this.Extention = extname(this.Data.FileName).slice(1)
+        this.BootstrapIcon = IconOverwrites[this.Extention.toLowerCase()] || `bi-filetype-${this.Extention}`
     }
 
     static async Create(FileData, FileName, User) {
@@ -121,7 +126,6 @@ class File {
     get MimeType() {
         return mime.getType(this.Extention)
     }
-
 
 }
 
