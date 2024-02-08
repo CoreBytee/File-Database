@@ -90,7 +90,7 @@ body {
   height: calc(100% - var(--topbar-height));
 }
 .Copyright {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   right: 0px;
   padding: 10px;
