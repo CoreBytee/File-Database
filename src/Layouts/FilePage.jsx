@@ -3,8 +3,6 @@ import Center from "../Components/Center"
 import FileDisplay from "../Components/FileDisplay"
 
 export default function FilePage({ children, file, uploader }) {
-    console.log(file.DisplayType)
-    
     return (
         <Root>
             <Center viewport>

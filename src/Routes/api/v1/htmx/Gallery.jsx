@@ -16,7 +16,6 @@ export default function GalleryMethod(FileDB, App) {
             if (!PossibleDisplayTypes.includes(DisplayType)) { return "Invalid display type" }
             if (!PossibleSortOrders.includes(SortOrder)) { return "Invalid sort order" }
             const Files = await File.List(10, 0, SortOrder, Reversed)
-            // console.log(Files)
             return <Gallery Files={Files} DisplayType={DisplayType} />
         },
         {

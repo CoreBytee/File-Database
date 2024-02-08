@@ -1,5 +1,4 @@
 export default function GalleryItem({ File, DisplayType }) {
-    console.log(DisplayType)
     return (
         <div class={`GalleryItem floatingblock ${DisplayType.toLowerCase()}`}>
             <div class="contentcontainer">
