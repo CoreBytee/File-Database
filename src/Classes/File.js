@@ -88,6 +88,10 @@ class File {
         return RenderFile(this)
     }
 
+    get Id() {
+        return this.Data.Id
+    }
+
     get Name() {
         return this.Data.FileName
     }
