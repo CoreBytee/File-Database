@@ -140,10 +140,8 @@ body {
 
 .Gallery {
     & > div {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         width: 100%;
     }
 }
@@ -254,11 +252,11 @@ body {
     }
 
     &.largegrid {
-        width: calc(50% - 20px);
+        width: calc(50% - 10px);
     }
 
     &.smallgrid {
-        width: calc(33.3333% - 20px);
+        width: calc(33.3333% - 10px);
     }
 }
 
@@ -297,12 +295,13 @@ body {
     gap: 20px;
     margin-top: 20px;
 
-    @media screen and (max-width: var(--max-content-width)) {
+    @media screen and (max-width: 800px) {
         padding: 0px 20px;
         flex-direction: column;
 
         .sidebar {
             width: 100% !important;
+            justify-self: flex-end;
         }
     }
 
