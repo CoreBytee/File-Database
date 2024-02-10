@@ -1,6 +1,6 @@
 import { basename } from "path"
 import File from "../../../../Classes/File.js"
-import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../../../Helpers/AuthenticateUser.jsx"
 import { t } from "elysia"
 
 export default function UploadMethod(FileDB, App) {
@@ -20,7 +20,7 @@ export default function UploadMethod(FileDB, App) {
             </div>
         },
         {
-            beforeHandle: CheckAuthentication,
+            beforeHandle: AuthenticateUser,
             body: t.Object(
                 {
                     file: t.File(),

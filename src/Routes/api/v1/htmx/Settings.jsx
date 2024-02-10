@@ -1,5 +1,5 @@
 import { t } from "elysia"
-import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../../../Helpers/AuthenticateUser"
 
 export default function SettingsMethod(FileDB, App) {
     App.post(
@@ -25,7 +25,7 @@ export default function SettingsMethod(FileDB, App) {
             return "ok"
         },
         {
-            beforeHandle: CheckAuthentication,
+            beforeHandle: AuthenticateUser,
             body: t.Object(
                 {
                     username: t.String(

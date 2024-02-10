@@ -1,4 +1,4 @@
-import CheckAuthentication from "../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../Helpers/AuthenticateUser"
 import SettingsPage from "../../Layouts/SettingsPage"
 
 export default function Index(FileDB, App) {
@@ -8,7 +8,7 @@ export default function Index(FileDB, App) {
             return <SettingsPage user={Request.User} />
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: AuthenticateUser
         }
     )
 }

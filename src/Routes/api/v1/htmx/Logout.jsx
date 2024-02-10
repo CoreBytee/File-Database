@@ -1,4 +1,4 @@
-import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../../../Helpers/AuthenticateUser"
 
 export default function LogoutMethod(FileDB, App) {
     App.get(
@@ -16,7 +16,7 @@ export default function LogoutMethod(FileDB, App) {
             return "Success"
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: AuthenticateUser
         }
     )
 }

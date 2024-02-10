@@ -9,6 +9,7 @@ export default function SettingsSidebar({ user }) {
             <div class="downloads floatingblock">
                 <h1>Downloads</h1>
                 <p>Here you can download configuration files for your capturing applications.</p>
+                <a href="/api/v1/json/appsettings/sharex" download="FileDB.sxcu">Download settings for ShareX</a>
             </div>
 
         </div>

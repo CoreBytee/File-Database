@@ -1,6 +1,6 @@
 import { t } from "elysia"
 import Gallery from "../../../../Components/Gallery"
-import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../../../Helpers/AuthenticateUser"
 import File from "../../../../Classes/File"
 
 const PossibleDisplayTypes = ["LargeGrid", "SmallGrid", "Rows"]
@@ -19,7 +19,7 @@ export default function GalleryMethod(FileDB, App) {
             return <Gallery Files={Files} DisplayType={DisplayType} />
         },
         {
-            beforeHandle: CheckAuthentication,
+            beforeHandle: AuthenticateUser,
             query: t.Object(
                 {
                     displaytype: t.String(),

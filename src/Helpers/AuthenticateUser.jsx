@@ -7,7 +7,7 @@ function ErrorResponse(Request) {
     return <LoginPage />
 }
 
-export default async function CheckAuthentication(Request) {
+export default async function AuthenticateUser(Request) {
     const AuthenticationCookie = Request.cookie.authentication.value
     const TokenData = await Request.JWT.verify(AuthenticationCookie)
     if (!TokenData) { return ErrorResponse(Request) }

@@ -1,4 +1,4 @@
-import CheckAuthentication from "../Helpers/CheckAuthentication"
+import AuthenticateUser from "../Helpers/AuthenticateUser"
 
 export default function Index(FileDB, App) {
     App.get(
@@ -9,7 +9,7 @@ export default function Index(FileDB, App) {
             return "Success"
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: AuthenticateUser
         }
     )
 }

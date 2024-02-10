@@ -1,4 +1,4 @@
-import CheckAuthentication from "../../../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../../../Helpers/AuthenticateUser"
 import Randomstring from "randomstring"
 
 export default function RegenerateKeyMethod(FileDB, App) {
@@ -9,7 +9,7 @@ export default function RegenerateKeyMethod(FileDB, App) {
             return <code>{NewKey}</code>
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: AuthenticateUser
         }
     )
 }

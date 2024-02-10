@@ -1,4 +1,4 @@
-import CheckAuthentication from "../../Helpers/CheckAuthentication"
+import AuthenticateUser from "../../Helpers/AuthenticateUser"
 import UploadPage from "../../Layouts/UploadPage"
 
 export default function Index(FileDB, App) {
@@ -8,7 +8,7 @@ export default function Index(FileDB, App) {
             return <UploadPage />
         },
         {
-            beforeHandle: CheckAuthentication
+            beforeHandle: AuthenticateUser
         }
     )
 }
