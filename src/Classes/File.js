@@ -120,11 +120,11 @@ class File {
     }
 
     get Link() {
-        return `${Bun.env.HOST}:${Bun.env.PORT}/file/${this.Data.Hash}`
+        return `${Bun.env.REQUEST_ORIGIN}/file/${this.Data.Hash}`
     }
 
     get RawLink() {
-        return `${Bun.env.HOST}:${Bun.env.PORT}/api/v1/file/${this.Data.Hash}`
+        return `${Bun.env.REQUEST_ORIGIN}/api/v1/file/${this.Data.Hash}`
     }
 
     get MimeType() {
