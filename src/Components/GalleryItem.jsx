@@ -12,7 +12,6 @@ export default function GalleryItem({ File, DisplayType }) {
         )
     } else {
         const RenderIcon = File.DisplayType == "image" || File.DisplayType == "video"
-        console.log(RenderIcon, File.DisplayType)
 
         return (
             <div class={`GalleryItem floatingblock ${DisplayType.toLowerCase()} ${RenderIcon ? "" : "rendericon"}`}>
