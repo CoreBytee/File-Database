@@ -26,7 +26,6 @@ a.button {
   color: white !important;
   font-size: 1rem;
   font-weight: bold;
-  text-align: center;
   font-family: var(--font-poppins);
   transition: background-color 0.2s;
 }
@@ -43,6 +42,13 @@ textarea:hover,
 button:hover,
 a.button:hover {
   background-color: var(--color-input-hover);
+}
+input.button,
+select.button,
+textarea.button,
+button.button,
+a.button.button {
+  text-align: center;
 }
 p {
   margin: 0;
@@ -218,16 +224,26 @@ body {
 }
 .GalleryItem.largegrid:hover .contentcontainer img,
 .GalleryItem.smallgrid:hover .contentcontainer img,
+.GalleryItem.largegrid.rendericon .contentcontainer img,
+.GalleryItem.smallgrid.rendericon .contentcontainer img,
 .GalleryItem.largegrid:hover .contentcontainer video,
 .GalleryItem.smallgrid:hover .contentcontainer video,
+.GalleryItem.largegrid.rendericon .contentcontainer video,
+.GalleryItem.smallgrid.rendericon .contentcontainer video,
 .GalleryItem.largegrid:hover .contentcontainer audio,
 .GalleryItem.smallgrid:hover .contentcontainer audio,
+.GalleryItem.largegrid.rendericon .contentcontainer audio,
+.GalleryItem.smallgrid.rendericon .contentcontainer audio,
 .GalleryItem.largegrid:hover .contentcontainer code,
-.GalleryItem.smallgrid:hover .contentcontainer code {
+.GalleryItem.smallgrid:hover .contentcontainer code,
+.GalleryItem.largegrid.rendericon .contentcontainer code,
+.GalleryItem.smallgrid.rendericon .contentcontainer code {
   filter: brightness(0.5) blur(10px);
 }
 .GalleryItem.largegrid:hover .contentcontainer i,
-.GalleryItem.smallgrid:hover .contentcontainer i {
+.GalleryItem.smallgrid:hover .contentcontainer i,
+.GalleryItem.largegrid.rendericon .contentcontainer i,
+.GalleryItem.smallgrid.rendericon .contentcontainer i {
   opacity: 0.5;
 }
 .GalleryItem.largegrid .contentcontainer,

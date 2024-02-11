@@ -8,7 +8,7 @@ export default function FileSelection({ Files = [] }) {
 
     if (Files.length == 1) {
         RenderedFile = Files[0].Render()
-        ViewLink = <><a href={Files[0].Link} target="_blank">View</a><a class={"button"} href={Files[0].RawLink}>Download</a></>
+        ViewLink = <><a class={"button"} href={Files[0].Link} target="_blank">View</a><a class={"button"} href={Files[0].RawLink}>Download</a></>
         CopyLinkButton = <button onClick={"navigator.clipboard.writeText(this.getAttribute('link'))"} link={Files[0].Link}>Copy Link</button>
     }
 
