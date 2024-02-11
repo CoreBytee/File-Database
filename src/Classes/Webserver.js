@@ -7,7 +7,13 @@ class Webserver {
     constructor(Port, FileDB) {
         this.Port = Port
         this.FileDB = FileDB
-        this.App = new Elysia()
+        this.App = new Elysia(
+            {
+                serve: {
+                    maxRequestBodySize: Number.MAX_SAFE_INTEGER
+                }
+            }
+        )
 
         this.App.onError(
             ({ code, error }) => {
