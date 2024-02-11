@@ -311,6 +311,11 @@ body {
   top: 2px;
   left: 2px;
 }
+.GalleryItem.rows p {
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
 .GalleryItem.rows:first-child {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
