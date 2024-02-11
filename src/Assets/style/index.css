@@ -15,7 +15,8 @@
 }
 input,
 select,
-textarea {
+textarea,
+button {
   appearance: none;
   background-color: var(--color-input);
   border: none;
@@ -27,12 +28,14 @@ textarea {
 }
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+button:focus {
   outline: var(--color-accent) 2px solid;
 }
 input:hover,
 select:hover,
-textarea:hover {
+textarea:hover,
+button:hover {
   background-color: var(--color-input-hover);
 }
 p {
@@ -126,6 +129,11 @@ body {
 .FileDisplay > code {
   max-width: 60vw;
   max-height: 60vh;
+}
+.FileSelection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .Gallery > div {
   width: 100%;

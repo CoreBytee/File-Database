@@ -2,7 +2,7 @@ export default function GalleryItem({ File, DisplayType }) {
     if (DisplayType == "Rows") {
         return (
             <div class={`GalleryItem ${DisplayType.toLowerCase()}`}>
-                <input type="checkbox" name={File.Id} id="fileselect" hx-post="/api/v1/htmx/fileselection" hx-trigger="change" hx-include="#fileselect" />
+                <input type="checkbox" name={File.Id} id="fileselect" hx-post="/api/v1/htmx/fileselection" hx-trigger="change" hx-include="#fileselect" hx-target=".FileSelection" hx-swap="outerHTML" />
                 <i class={`bi ${File.BootstrapIcon}`}></i>
                 <p>{File.Name}</p>
                 <p>{File.ReadableSize}</p>
@@ -12,7 +12,7 @@ export default function GalleryItem({ File, DisplayType }) {
     } else {
         return (
             <div class={`GalleryItem floatingblock ${DisplayType.toLowerCase()}`}>
-                <input type="checkbox" name={File.Id} id="fileselect" hx-post="/api/v1/htmx/fileselection" hx-trigger="change" hx-include="#fileselect" />
+                <input type="checkbox" name={File.Id} id="fileselect" hx-post="/api/v1/htmx/fileselection" hx-trigger="change" hx-include="#fileselect" hx-target=".FileSelection" hx-swap="outerHTML" />
                 <div class="contentcontainer">
                     {File.Render()}
                     <i class={`bi ${File.BootstrapIcon}`}></i>

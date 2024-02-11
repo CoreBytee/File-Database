@@ -8,6 +8,7 @@ import User from "./User"
 import mime from "mime"
 import ReadableSize from "../Helpers/ReadableSize"
 import RenderFile from "../Helpers/RenderFile"
+import { unlink } from "fs/promises"
 
 const IconOverwrites = {
     zip: "bi-file-earmark-zip",
@@ -56,6 +57,11 @@ class File {
         return new File(Data)
     }
 
+    static async FromMultipleIds(Ids) {
+        const Data = await File.SQL.prepare(`SELECT * FROM Files WHERE Id IN (${Ids.map(() => "?").join(",")})`).all(Ids)
+        return Data.map(FileData => new File(FileData))
+    }
+
     static async FromHash(Hash) {
         const Data = await File.SQL.prepare(`SELECT * FROM Files WHERE Hash = $hash`).get(
             {
@@ -86,6 +92,16 @@ class File {
 
     Render() {
         return RenderFile(this)
+    }
+
+    async Delete() {
+        await File.SQL.prepare(`DELETE FROM Files WHERE Id = $id`).run(
+            {
+                $id: this.Data.Id
+            }
+        )
+        
+        await unlink(await this.GetFilePath())
     }
 
     get Id() {
