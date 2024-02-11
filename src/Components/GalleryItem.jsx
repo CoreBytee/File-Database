@@ -1,4 +1,5 @@
 export default function GalleryItem({ File, DisplayType }) {
+    console.log("a")
     if (DisplayType == "Rows") {
         return (
             <div class={`GalleryItem ${DisplayType.toLowerCase()}`}>
@@ -10,11 +11,14 @@ export default function GalleryItem({ File, DisplayType }) {
             </div>
         )
     } else {
+        const RenderIcon = File.DisplayType == "image" || File.DisplayType == "video"
+        console.log(RenderIcon, File.DisplayType)
+
         return (
-            <div class={`GalleryItem floatingblock ${DisplayType.toLowerCase()}`}>
+            <div class={`GalleryItem floatingblock ${DisplayType.toLowerCase()} ${RenderIcon ? "" : "rendericon"}`}>
                 <input type="checkbox" name={File.Id} id="fileselect" hx-post="/api/v1/htmx/fileselection" hx-trigger="change" hx-include="#fileselect" hx-target=".FileSelection" hx-swap="outerHTML" />
                 <div class="contentcontainer">
-                    {File.Render()}
+                    {RenderIcon ? File.Render() : ""}
                     <i class={`bi ${File.BootstrapIcon}`}></i>
                 </div>
                 <div class="data">
