@@ -1,5 +1,4 @@
 export default function GalleryItem({ File, DisplayType }) {
-    console.log("a")
     if (DisplayType == "Rows") {
         return (
             <div class={`GalleryItem ${DisplayType.toLowerCase()}`}>
