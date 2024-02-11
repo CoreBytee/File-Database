@@ -16,26 +16,32 @@
 input,
 select,
 textarea,
-button {
+button,
+a.button {
   appearance: none;
   background-color: var(--color-input);
   border: none;
   padding: 10px;
   border-radius: 10px;
-  color: white;
+  color: white !important;
   font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: var(--font-poppins);
   transition: background-color 0.2s;
 }
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
+button:focus,
+a.button:focus {
   outline: var(--color-accent) 2px solid;
 }
 input:hover,
 select:hover,
 textarea:hover,
-button:hover {
+button:hover,
+a.button:hover {
   background-color: var(--color-input-hover);
 }
 p {
@@ -211,7 +217,13 @@ body {
   border: 2px solid var(--color-accent);
 }
 .GalleryItem.largegrid:hover .contentcontainer img,
-.GalleryItem.smallgrid:hover .contentcontainer img {
+.GalleryItem.smallgrid:hover .contentcontainer img,
+.GalleryItem.largegrid:hover .contentcontainer video,
+.GalleryItem.smallgrid:hover .contentcontainer video,
+.GalleryItem.largegrid:hover .contentcontainer audio,
+.GalleryItem.smallgrid:hover .contentcontainer audio,
+.GalleryItem.largegrid:hover .contentcontainer code,
+.GalleryItem.smallgrid:hover .contentcontainer code {
   filter: brightness(0.5) blur(10px);
 }
 .GalleryItem.largegrid:hover .contentcontainer i,
@@ -229,9 +241,17 @@ body {
   aspect-ratio: 1/1;
 }
 .GalleryItem.largegrid .contentcontainer img,
-.GalleryItem.smallgrid .contentcontainer img {
+.GalleryItem.smallgrid .contentcontainer img,
+.GalleryItem.largegrid .contentcontainer video,
+.GalleryItem.smallgrid .contentcontainer video,
+.GalleryItem.largegrid .contentcontainer audio,
+.GalleryItem.smallgrid .contentcontainer audio,
+.GalleryItem.largegrid .contentcontainer code,
+.GalleryItem.smallgrid .contentcontainer code {
   pointer-events: none;
   transition: filter 0.2s;
+  width: 100%;
+  height: 100%;
 }
 .GalleryItem.largegrid .contentcontainer i,
 .GalleryItem.smallgrid .contentcontainer i {
@@ -252,13 +272,6 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-}
-.GalleryItem.largegrid img,
-.GalleryItem.smallgrid img,
-.GalleryItem.largegrid video,
-.GalleryItem.smallgrid video {
-  width: 100%;
-  height: 100%;
 }
 .GalleryItem.rows {
   display: grid;
