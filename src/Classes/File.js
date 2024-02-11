@@ -1,9 +1,6 @@
 import { CryptoHasher } from "bun"
 import { Database } from "bun:sqlite"
 import { extname } from "path"
-import textExtensions from "text-extensions"
-import imageExtensions from "image-extensions"
-import videoExtensions from "video-extensions"
 import User from "./User"
 import mime from "mime"
 import ReadableSize from "../Helpers/ReadableSize"
@@ -125,9 +122,12 @@ class File {
     }
 
     get DisplayType() {
-        if (imageExtensions.includes(this.Extention)) { return "image" }
-        if (textExtensions.includes(this.Extention)) { return "text" }
-        if (videoExtensions.includes(this.Extention)) { return "video" }
+        const AllowedTypes = ["image", "text", "video", "audio"]
+        for (const Type of AllowedTypes) {
+            if (this.MimeType.startsWith(Type + "/")) {
+                return Type
+            }
+        }
         return "other"
     }
 

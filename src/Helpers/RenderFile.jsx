@@ -6,5 +6,7 @@ export default function RenderFile(File) {
         return <video controls><source src={File.RawLink} type="video/mp4" /></video>
     } else if (DisplayType == "text") {
         return <code hx-get={File.RawLink} hx-swap="innerHTML"></code>
+    } else if (DisplayType == "audio") {
+        return <audio controls><source src={File.RawLink} /></audio>
     }
 }
