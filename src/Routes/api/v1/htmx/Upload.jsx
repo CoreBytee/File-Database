@@ -23,7 +23,7 @@ export default function UploadMethod(FileDB, App) {
             beforeHandle: AuthenticateUser,
             body: t.Object(
                 {
-                    file: t.File(),
+                    file: t.File({ error: "Invalid file uploaded" }),
                     filename: t.String(
                         {
                             maxLength: 255,
