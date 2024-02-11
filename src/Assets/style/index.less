@@ -175,10 +175,22 @@ body {
 
         &.largegrid {
             grid-template-columns: repeat(3, minmax(200px, 1fr));
+
+            @media screen and (max-width: 800px){
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+            }
         }
 
         &.smallgrid {
             grid-template-columns: repeat(4, minmax(200px, 1fr));
+
+            @media screen and (max-width: 800px){
+                grid-template-columns: repeat(3, minmax(200px, 1fr));
+            }
+
+            @media screen and (max-width: 300px){
+                grid-template-columns: 100%;
+            }
         }
 
         .header {
@@ -398,7 +410,7 @@ body {
 
         .sidebar {
             width: 100% !important;
-            justify-self: flex-end;
+            order: -1;
         }
     }
 

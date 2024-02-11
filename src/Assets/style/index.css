@@ -158,8 +158,23 @@ body {
 .Gallery > div.largegrid {
   grid-template-columns: repeat(3, minmax(200px, 1fr));
 }
+@media screen and (max-width: 800px) {
+  .Gallery > div.largegrid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
 .Gallery > div.smallgrid {
   grid-template-columns: repeat(4, minmax(200px, 1fr));
+}
+@media screen and (max-width: 800px) {
+  .Gallery > div.smallgrid {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+}
+@media screen and (max-width: 300px) {
+  .Gallery > div.smallgrid {
+    grid-template-columns: 100%;
+  }
 }
 .Gallery > div .header {
   display: grid;
@@ -362,7 +377,7 @@ body {
   }
   .MainView .sidebar {
     width: 100% !important;
-    justify-self: flex-end;
+    order: -1;
   }
 }
 .MainView .maincontent,
